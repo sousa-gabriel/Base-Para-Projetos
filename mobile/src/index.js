@@ -6,11 +6,11 @@ export default function App(){
 
     const [projects, setProjects]= useState([]);
 
-    useEffect(()=>{
-        api.get('projects').then(respose=>{
-            setProjects(respose.data);
-        });
-    },[])
+    useEffect(() => {
+        api.get('projects').then(response => {
+          setProjects(response.data);
+        })
+      }, []);
 
     async function handleAddProject(){
         const response = await api.post('projects',{
@@ -21,7 +21,6 @@ export default function App(){
         const project = response.data;
         setProjects([...projects, project]);
     }
-
 
     return (
     <> 
